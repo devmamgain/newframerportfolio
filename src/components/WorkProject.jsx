@@ -6,8 +6,10 @@ import breezetravelimg from "../assets/BreezeTravel.png"
 import clickcartimg from "../assets/ClickCart.png"
 
 const WorkProject = ()=>{
-    const heading = "Work"
+    const heading = "Company."
     const headingbreak = heading.split("")
+    const headingproject = "Projects."
+    const headingprojectbreak = headingproject.split("")
     const containRef = useRef(null)
    const [showingdetail,setShowingDetail] = useState(false)
     const isInView = useInView(containRef)
@@ -26,7 +28,7 @@ const WorkProject = ()=>{
     })
     const formydetail = useTransform(
         scrollYProgress,
-        [0,1],
+        [0,0.6],
         ["-50%", "0%"],
       
     )
@@ -69,19 +71,20 @@ const WorkProject = ()=>{
       
         const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
         return(
-            <section ref={targetRef} className="relative w-[70%] mt-20 h-[300vh]">
+            <section ref={targetRef} className="relative h-[300vh] w-[85%]">
+                
                 <div className="flex flex-col sticky top-0 gap-10 overflow-hidden h-screen justify-center ">
-            <h1 className="text-white font-semibold text-2xl text-center">Project</h1>
+            {/* <h1 className="text-white font-semibold text-2xl text-center">Project</h1> */}
 
-            <div className="flex">
+            <div className="flex ">
 
-            <motion.div style={{ x }} className="flex gap-20 hover:bg-">
+            <motion.div style={{ x }} className="flex gap-20 mt-10 mb-10 ">
             
-            {projectdata.map((data, index)=>  <div key={index} className="group relative overflow-hidden w-[140vh] flex-none transition-transform duration-300 transform hover:scale-105" >
-                    <h1 className="text-white ">{data.projectname}</h1>
+            {projectdata.map((data, index)=>  <div key={index} className="group relative overflow-hidden w-[122vh] flex flex-col gap-3 transition-transform duration-300 transform hover:scale-105 " >
+            <h1 className='text-white text-4xl font-extrabold'>{data.projectname}</h1>
                     <img className="" src={data.img} alt="no image"/>
-                    <p className="text-white ">Tools and Technologies: {data.skills}</p>
-                    <p className="text-white ">About {data.about}</p>
+                    <h1 className="text-white flex flex-col font-semibold text-lg">Tools and Technologies: <span className="text-white font-normal text-base">{data.skills}</span> </h1>
+                    <h1 className="text-white flex flex-col font-semibold text-lg">About: <span className="text-white font-normal text-base">{data.about}</span></h1>
                     </div>)}
                     </motion.div>
                     </div>
@@ -90,8 +93,11 @@ const WorkProject = ()=>{
         )
     }
     return(
-        <div className="flex flex-col min-h-screen items-center bg-black" >
-   <motion.span ref={containRef} className='text-3xl text-white mt-20' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
+        <div className="flex flex-col min-h-screen bg-black" >
+            <div className="ml-[16%] mt-20">
+                       <h1 className="text-lg text-[#A0A0A0]">My Work</h1>
+
+   {/* <motion.span ref={containRef} className='text-3xl text-white mt-20' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
   {  headingbreak.map((datahead,index )=><motion.span className=' inline-block' key={index} variants={{visible:{y:0,opacity:1, transition:{duration:0.3}}, hidden:{y:20,opacity:0}}}>{datahead}</motion.span>
      )}
      </motion.span>
@@ -99,8 +105,15 @@ const WorkProject = ()=>{
    I worked at React JS Developer At StoreShoppy Pvt.Ltd as an intern from Feb. 2024- May. 2024
 • We transform client idea into practical solutions, addressing their business challenges effectively.
  • Developed Reduxpay, LiquidityFunder and a trading game
-</motion.p>
+</motion.p> */}
+<motion.span ref={containRef} className='text-6xl text-white mt-5 font-extrabold' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
+  {  headingprojectbreak.map((datahead,index )=><motion.span className=' inline-block' key={index} variants={{visible:{y:0,opacity:1, transition:{duration:0.3}}, hidden:{y:20,opacity:0}}}>{datahead}</motion.span>
+     )}
+     </motion.span>
+     
 <HorizontalScrollCarousel/>
+
+
 {/* <section ref={projectsRef} className="relative w-[70%] mt-20 h-[300vh]">
 <h1 className="text-white font-semibold text-2xl text-center">Project</h1>
 
@@ -114,6 +127,7 @@ const WorkProject = ()=>{
         </motion.div>
         </div>
         </section> */}
+        </div>
         </div>
     )
 }

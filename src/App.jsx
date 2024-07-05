@@ -5,6 +5,7 @@ import SideBar from './components/SideBar';
 import { BrowserRouter} from 'react-router-dom';
 import ScrollToHashElement from '@cascadia-code/scroll-to-hash-element';
 import WorkProject from './components/WorkProject';
+import ContactMe from './components/ContactMe';
 
 
 
@@ -18,7 +19,8 @@ const App = () => {
     <div className='w-full '>
     <ProjectSlider/>
      <div id="details"><Details/></div> 
-    <WorkProject/>
+     <div id="workproject"><WorkProject/></div>
+     <div id="contactme"><ContactMe/></div>
       </div>
       </div>
       </BrowserRouter>
