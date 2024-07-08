@@ -27,7 +27,7 @@ const Details =()=>{
     },[isInView])
     const {scrollYProgress} = useScroll({
         target: containRef,
-        offset: ["start end", "end end"]
+        offset: ["start end", "end start"]
     })
 
   useEffect(() => {
@@ -40,15 +40,15 @@ const Details =()=>{
   }, []);
     const formydetail = useTransform(
         scrollYProgress,
-        [0,0.6],
+        isMobile ?[0,0.3] : [0,0.5],
         isMobile ? ["-20%", "0%"] : ["-50%", "0%"]
 
       
     )
-    const foropacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.9, 1])
+    const foropacity = isMobile ? useTransform(scrollYProgress, [0, 0.3, 1], [0, 0.9, 1]) : useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.9, 1])
     const formyskill = useTransform(
         scrollYProgress,
-        [0,0.6],
+        isMobile ? [0,0.3] : [0,0.5],
         isMobile ? ["20%", "0%"] : ["50%", "0%"]
 
        
@@ -77,9 +77,9 @@ const Details =()=>{
 </motion.p>
 </div>
 
-<div className="ml-auto sm1:mr-[16%] sm:mr-[20%] sm1:w-[30%] sm:w-[60%]">
+ <div className="ml-auto sm1:mr-[16%] sm:mr-[20%] sm1:w-[30%] sm:w-[60%]">
 
-<motion.div ref={containRef} className='md:text-6xl text-white font-extrabold sm2:text-4xl sm:text-2xl' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
+ <motion.div ref={containRef} className='md:text-6xl text-white font-extrabold sm2:text-4xl sm:text-2xl' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
   {  aboutskillbreak.map((datahead,index )=><motion.span className=' inline-block' key={index} variants={{visible:{y:0,opacity:1, transition:{duration:0.3}}, hidden:{y:20,opacity:0}}}>{datahead}</motion.span>
      )}
      </motion.div>
@@ -104,12 +104,11 @@ const Details =()=>{
       }
     }
     initial="hidden"
-    ref={containRef}
-    animate={maincontrol}
+    animate="visible"
      className="flex flex-wrap mt-5 p-10 gap-10 justify-center">
       <motion.div 
       variants={{hidden:{opacity:0},visible:{opacity:1}}}
-      className="border-2 border-cyan-900 rounded-2xl px-12 py-14 xl:w-[15%] lg:w-[18%] md:w-[20%] sm2:w-[25%] sm-[25%] flex flex-col gap-5 items-center h-[300px]" >
+      className="border-2 border-cyan-900 rounded-2xl px-12 py-14 sm2:w-56 sm:w-64 flex flex-col gap-5 items-center h-[300px]" >
      <motion.svg
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -139,7 +138,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16  xl:w-[15%] lg:w-[18%] md:w-[20%] sm2:w-[25%] sm-[25%] h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl px-12 py-16  sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +171,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 xl:w-[15%] lg:w-[18%] md:w-[20%] sm2:w-[25%] sm-[25%] h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +202,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 xl:w-[15%] lg:w-[18%] md:w-[20%] sm2:w-[25%] sm-[25%] h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"
@@ -230,7 +229,7 @@ const Details =()=>{
     </motion.svg>
     <h1 className="text-white font-bold text-4xl">MongoDB</h1>
 
-    </motion.div>
+    </motion.div> 
     </motion.div>
         </div>
     )
