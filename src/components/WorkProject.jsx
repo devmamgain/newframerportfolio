@@ -45,21 +45,24 @@ const WorkProject = ()=>{
         title:" Online Payment Gateway",
         about:"It is an online payment gateway where businessman can manage their Payouts.Reduxpay is design and developed by me from scratch",
         skills:" ReactJs, Tailwind Css, RazorPay Api, NodeJs, ChartJs, AES, Git",
-        img:reduxpayimg
+        img:reduxpayimg,
+        link:"https://razporpayuserend.vercel.app/"
         },
         {
             projectname:"Breeze Travel",
             title:"ReactJs, TailwindCss, NodeJs, MongoDB",
              about:"It uses JWTTOKEN for authentication, purchasing hotels and uses razporpay payment gateway.One can look for hotel in any state, filter hotels by no. of rooms, beds, price, hotel category, etc.",
             skills:" ReactJs, Tailwind Css, RazorPay Api, NodeJs, ChartJs, AES, Git",
-            img:breezetravelimg
+            img:breezetravelimg,
+            link:"https://breezetravelfrontend.onrender.com/"
             },
             {
                 projectname:" ClickCart",
                 title:" E-Commerce Website That Uses React, Sanity and Stripe",
                  about:"This project has every major feature you would expect from a modern e-commerce app, such as an attractive and accessible user interface, a powerful shopping cart",
                 skills:" Reactjs, JavaScript, HTML, Expressjs, Git, NextJs",
-                img:clickcartimg
+                img:clickcartimg,
+                link:"https://click-cart-devmamgain-fromgithub.vercel.app/"
                 }
     ]
         
@@ -80,12 +83,18 @@ const WorkProject = ()=>{
 
             <motion.div style={{ x }} className="flex gap-20 mt-10 mb-10 ">
             
-            {projectdata.map((data, index)=>  <div key={index} className="group relative overflow-hidden w-[122vh] flex flex-col gap-3 transition-transform duration-300 transform hover:scale-105 " >
+            {projectdata.map((data, index)=>  
+
+            <div key={index} className="group relative overflow-hidden w-[122vh] flex flex-col gap-3 transition-transform duration-300 transform hover:scale-105 " >
+                                                       <a href={data.link} target="_blank" rel="noopener noreferrer" key={index} className="group relative overflow-hidden  flex flex-col gap-3">
+
             <h1 className='text-white text-4xl font-extrabold'>{data.projectname}</h1>
                     <img className="" src={data.img} alt="no image"/>
                     <h1 className="text-white flex flex-col font-semibold text-lg">Tools and Technologies: <span className="text-white font-normal text-base">{data.skills}</span> </h1>
                     <h1 className="text-white flex flex-col font-semibold text-lg">About: <span className="text-white font-normal text-base">{data.about}</span></h1>
-                    </div>)}
+                    </a>
+                    </div>
+                   )}
                     </motion.div>
                     </div>
                     </div>

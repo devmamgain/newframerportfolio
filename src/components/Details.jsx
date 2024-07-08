@@ -1,11 +1,12 @@
 import { motion, useAnimate, useAnimation, useInView, useScroll, useTransform } from "framer-motion"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const Details =()=>{
     const heading = "Overview."
     
     const headingbreak = heading.split("")
-  
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 572);
+
     const aboutskill = "Skills."
     const aboutskillbreak = aboutskill.split("")
     const aboutMyself = `
@@ -28,17 +29,28 @@ const Details =()=>{
         target: containRef,
         offset: ["start end", "end end"]
     })
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 572);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
     const formydetail = useTransform(
         scrollYProgress,
         [0,0.6],
-        ["-50%", "0%"],
+        isMobile ? ["-20%", "0%"] : ["-50%", "0%"]
+
       
     )
     const foropacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.9, 1])
     const formyskill = useTransform(
         scrollYProgress,
         [0,0.6],
-        ["50%", "0%"],
+        isMobile ? ["20%", "0%"] : ["50%", "0%"]
+
        
     )
     console.log(isInView)
@@ -52,7 +64,7 @@ const Details =()=>{
     
     // const chunks = splitIntoChunks(myselfbreak, 6);
         return(
-        <div className="flex flex-col min-h-screen bg-black" >
+        <div className="flex flex-col min-h-screen bg-black " >
           <div className="mt-10 sm1:ml-[16%] sm:ml-[20%] sm1:w-[40%] sm:w-[60%]">
             <h1 className="sm2:text-lg text-[#A0A0A0] sm:text-base">Introduction</h1>
              <motion.span ref={containRef} className='md:text-6xl text-white font-extrabold sm2:text-4xl sm:text-2xl' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
@@ -94,10 +106,10 @@ const Details =()=>{
     initial="hidden"
     ref={containRef}
     animate={maincontrol}
-     className="flex flex-wrap mt-5 p-10 gap-[3%] justify-center">
+     className="flex flex-wrap mt-5 p-10 gap-10 justify-center">
       <motion.div 
       variants={{hidden:{opacity:0},visible:{opacity:1}}}
-      className="border-2 border-cyan-900 rounded-2xl px-12 py-14 w-[15%] flex flex-col gap-5 items-center h-[300px]" >
+      className="border-2 border-cyan-900 rounded-2xl px-12 py-14 xl:w-[15%] lg:w-[18%] md:w-[20%] sm2:w-[25%] sm-[25%] flex flex-col gap-5 items-center h-[300px]" >
      <motion.svg
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -127,7 +139,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16  w-[15%] h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl px-12 py-16  xl:w-[15%] lg:w-[18%] md:w-[20%] sm2:w-[25%] sm-[25%] h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +172,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 w-[15%] h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 xl:w-[15%] lg:w-[18%] md:w-[20%] sm2:w-[25%] sm-[25%] h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +203,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 w-[15%] h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 xl:w-[15%] lg:w-[18%] md:w-[20%] sm2:w-[25%] sm-[25%] h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"
