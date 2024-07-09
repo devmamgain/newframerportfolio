@@ -40,7 +40,7 @@ const Details =()=>{
   }, []);
     const formydetail = useTransform(
         scrollYProgress,
-        isMobile ?[0,0.3] : [0,0.5],
+        isMobile ?[0,0.3] : [0,0.6],
         isMobile ? ["-20%", "0%"] : ["-50%", "0%"]
 
       
@@ -48,7 +48,7 @@ const Details =()=>{
     const foropacity = isMobile ? useTransform(scrollYProgress, [0, 0.3, 1], [0, 0.9, 1]) : useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.9, 1])
     const formyskill = useTransform(
         scrollYProgress,
-        isMobile ? [0,0.3] : [0,0.5],
+        isMobile ? [0,0.3] : [0,0.6],
         isMobile ? ["20%", "0%"] : ["50%", "0%"]
 
        
@@ -105,10 +105,10 @@ const Details =()=>{
     }
     initial="hidden"
     animate="visible"
-     className="flex flex-wrap mt-5 p-10 gap-10 justify-center">
+     className="flex flex-wrap mt-5 p-10 gap-10 justify-center sm:ml-8 sm2:ml-0">
       <motion.div 
       variants={{hidden:{opacity:0},visible:{opacity:1}}}
-      className="border-2 border-cyan-900 rounded-2xl px-12 py-14 sm2:w-56 sm:w-64 flex flex-col gap-5 items-center h-[300px]" >
+      className="border-2 border-cyan-900 rounded-2xl  py-14 sm2:w-56 sm:w-64 flex flex-col gap-5 items-center h-[300px] " >
      <motion.svg
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -138,7 +138,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16  sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl  py-16  sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl  py-16 sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"
@@ -202,7 +202,7 @@ const Details =()=>{
     <motion.div 
           variants={{hidden:{opacity:0},visible:{opacity:1}}}
 
-    className="border-2 border-cyan-900 rounded-2xl px-12 py-16 sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
+    className="border-2 border-cyan-900 rounded-2xl  py-16 sm2:w-56 sm:w-64 h-[300px] flex flex-col gap-5 items-center">
 
     <motion.svg
      xmlns="http://www.w3.org/2000/svg"

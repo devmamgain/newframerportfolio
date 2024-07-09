@@ -4,6 +4,7 @@ import reduxpayimg from "../assets/reduxpayy.png"
 import reduxpayimg2 from "../assets/reduxpay2.png"
 import breezetravelimg from "../assets/BreezeTravel.png"
 import clickcartimg from "../assets/ClickCart.png"
+import chatppimg from "../assets/chatapp.png"
 
 const WorkProject = ()=>{
     const heading = "Company."
@@ -50,12 +51,20 @@ const WorkProject = ()=>{
         },
         {
             projectname:"Breeze Travel",
-            title:"ReactJs, TailwindCss, NodeJs, MongoDB",
+            title:" Hotel Booking Site That Uses Razorpay payment gateway",
              about:"It uses JWTTOKEN for authentication, purchasing hotels and uses razporpay payment gateway.One can look for hotel in any state, filter hotels by no. of rooms, beds, price, hotel category, etc.",
-            skills:" ReactJs, Tailwind Css, RazorPay Api, NodeJs, ChartJs, AES, Git",
+            skills:"ReactJs, TailwindCss, NodeJs, MongoDB",
             img:breezetravelimg,
             link:"https://breezetravelfrontend.onrender.com/"
             },
+            {
+                projectname:"ChatMess",
+                title:" Chatting app that uses sockets.io for realtime messaging",
+                 about:" Chatting app that uses sockets.io for realtime messaging ,calling, video calling it has great ui like whatsapp you can send audio message, images, emojis too",
+                skills:"ReactJs, Socket.io, TailwindCss, NodeJs, MongoDB",
+                img:chatppimg,
+                link:"https://chat-mess-devmamgain.vercel.app/"
+                },
             {
                 projectname:" ClickCart",
                 title:" E-Commerce Website That Uses React, Sanity and Stripe",
@@ -74,7 +83,7 @@ const WorkProject = ()=>{
       
         const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
         return(
-            <section ref={targetRef} className="relative h-[300vh] w-[85%]">
+            <section ref={targetRef} className="relative h-[300vh] w-[95%]">
                 
                 <div className="flex flex-col sticky top-0 gap-10 overflow-hidden h-screen justify-center ">
             {/* <h1 className="text-white font-semibold text-2xl text-center">Project</h1> */}
@@ -85,10 +94,10 @@ const WorkProject = ()=>{
             
             {projectdata.map((data, index)=>  
 
-            <div key={index} className="group relative overflow-hidden w-[122vh] flex flex-col gap-3 transition-transform duration-300 transform hover:scale-105 " >
+            <div key={index} className="group relative overflow-hidden sm2:w-[122vh] sm:w-[60vh] flex flex-col gap-3 transition-transform duration-300 transform hover:scale-105 " >
                                                        <a href={data.link} target="_blank" rel="noopener noreferrer" key={index} className="group relative overflow-hidden  flex flex-col gap-3">
 
-            <h1 className='text-white text-4xl font-extrabold'>{data.projectname}</h1>
+            <h1 className='text-white sm2:text-4xl sm:text-2xl font-extrabold'>{data.projectname}</h1>
                     <img className="" src={data.img} alt="no image"/>
                     <h1 className="text-white flex flex-col font-semibold text-lg">Tools and Technologies: <span className="text-white font-normal text-base">{data.skills}</span> </h1>
                     <h1 className="text-white flex flex-col font-semibold text-lg">About: <span className="text-white font-normal text-base">{data.about}</span></h1>
@@ -103,7 +112,7 @@ const WorkProject = ()=>{
     }
     return(
         <div className="flex flex-col min-h-screen bg-black" >
-            <div className="ml-[16%] mt-20">
+            <div className="sm1:ml-[16%] sm:ml-[20%] mt-20">
                        <h1 className="text-lg text-[#A0A0A0]">My Work</h1>
 
    {/* <motion.span ref={containRef} className='text-3xl text-white mt-20' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
@@ -115,7 +124,7 @@ const WorkProject = ()=>{
 • We transform client idea into practical solutions, addressing their business challenges effectively.
  • Developed Reduxpay, LiquidityFunder and a trading game
 </motion.p> */}
-<motion.span ref={containRef} className='text-6xl text-white mt-5 font-extrabold' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
+<motion.span ref={containRef} className='sm2:text-6xl sm:text-4xl text-white mt-5 font-extrabold' variants={{visible:{y:0, transition:{duration:0.3, staggerChildren:0.1}}, hidden:{y:20}}} animate={maincontrol} initial="hidden">
   {  headingprojectbreak.map((datahead,index )=><motion.span className=' inline-block' key={index} variants={{visible:{y:0,opacity:1, transition:{duration:0.3}}, hidden:{y:20,opacity:0}}}>{datahead}</motion.span>
      )}
      </motion.span>
