@@ -5,7 +5,7 @@ import reduxpayimg2 from "../assets/reduxpay2.png"
 import breezetravelimg from "../assets/BreezeTravel.png"
 import clickcartimg from "../assets/ClickCart.png"
 import chatppimg from "../assets/chatapp.png"
-
+import techsolutions from "../assets/techsolutions.png"
 const WorkProject = () => {
     const heading = "Company."
     const headingbreak = heading.split("")
@@ -41,38 +41,47 @@ const WorkProject = () => {
 
     )
 
-    const projectdata = [{
-        projectname: "ReduxPay",
-        title: " Online Payment Gateway",
-        about: "It is an online payment gateway where businessman can manage their Payouts.Reduxpay is design and developed by me from scratch",
-        skills: " ReactJs, Tailwind Css, RazorPay Api, NodeJs, ChartJs, AES, Git",
-        img: reduxpayimg,
-        link: "https://razporpayuserend.vercel.app/"
-    },
-    {
-        projectname: "Breeze Travel",
-        title: " Hotel Booking Site That Uses Razorpay payment gateway",
-        about: "It uses JWTTOKEN for authentication, purchasing hotels and uses razporpay payment gateway.One can look for hotel in any state, filter hotels by no. of rooms, beds, price, hotel category, etc.",
-        skills: "ReactJs, TailwindCss, NodeJs, MongoDB",
-        img: breezetravelimg,
-        link: "https://breezetravelfrontend.onrender.com/"
-    },
-    {
-        projectname: "ChatMess",
-        title: " Chatting app that uses sockets.io for realtime messaging",
-        about: " Chatting app that uses sockets.io for realtime messaging ,calling, video calling it has great ui like whatsapp you can send audio message, images, emojis too",
-        skills: "ReactJs, Socket.io, TailwindCss, NodeJs, MongoDB",
-        img: chatppimg,
-        link: "https://chat-mess-devmamgain.vercel.app/"
-    },
-    {
-        projectname: " ClickCart",
-        title: " E-Commerce Website That Uses React, Sanity and Stripe",
-        about: "This project has every major feature you would expect from a modern e-commerce app, such as an attractive and accessible user interface, a powerful shopping cart",
-        skills: " Reactjs, JavaScript, HTML, Expressjs, Git, NextJs",
-        img: clickcartimg,
-        link: "https://click-cart-devmamgain-fromgithub.vercel.app/"
-    }
+    const projectdata = [
+        {
+            projectname: "Tech Solutions",
+            title: "Marketing Website",
+            about: "A fully responsive marketing website (tech-solutions.ai) using React.js, Tailwind CSS, and Framer Motion with a modern, minimalist UI.",
+            skills: " ReactJs, Tailwind Css, Framer Motion, Git",
+            img: techsolutions,
+            link: "https://tech-solutions.ai/"
+        },
+        {
+            projectname: "ReduxPay",
+            title: " Online Payment Gateway",
+            about: "It is an online payment gateway where businessman can manage their Payouts.Reduxpay is design and developed by me from scratch",
+            skills: " ReactJs, Tailwind Css, RazorPay Api, NodeJs, ChartJs, AES, Git",
+            img: reduxpayimg,
+            link: "https://razporpayuserend.vercel.app/"
+        },
+        // {
+        //     projectname: "Breeze Travel",
+        //     title: " Hotel Booking Site That Uses Razorpay payment gateway",
+        //     about: "It uses JWTTOKEN for authentication, purchasing hotels and uses razporpay payment gateway.One can look for hotel in any state, filter hotels by no. of rooms, beds, price, hotel category, etc.",
+        //     skills: "ReactJs, TailwindCss, NodeJs, MongoDB",
+        //     img: breezetravelimg,
+        //     link: "https://breezetravelfrontend.onrender.com/"
+        // },
+        {
+            projectname: "ChatMess",
+            title: " Chatting app that uses sockets.io for realtime messaging",
+            about: " Chatting app that uses sockets.io for realtime messaging ,calling, video calling it has great ui like whatsapp you can send audio message, images, emojis too",
+            skills: "ReactJs, Socket.io, TailwindCss, NodeJs, MongoDB",
+            img: chatppimg,
+            link: "https://chat-mess-devmamgain.vercel.app/"
+        },
+        {
+            projectname: " ClickCart",
+            title: " E-Commerce Website That Uses React, Sanity and Stripe",
+            about: "This project has every major feature you would expect from a modern e-commerce app, such as an attractive and accessible user interface, a powerful shopping cart",
+            skills: " Reactjs, JavaScript, HTML, Expressjs, Git, NextJs",
+            img: clickcartimg,
+            link: "https://click-cart-devmamgain-fromgithub.vercel.app/"
+        }
     ]
 
     const HorizontalScrollCarousel = () => {
@@ -128,8 +137,25 @@ const WorkProject = () => {
                     {headingprojectbreak.map((datahead, index) => <motion.span className=' inline-block' key={index} variants={{ visible: { y: 0, opacity: 1, transition: { duration: 0.3 } }, hidden: { y: 20, opacity: 0 } }}>{datahead}</motion.span>
                     )}
                 </motion.span>
+                <div className="flex ">
 
-                <HorizontalScrollCarousel />
+                    <motion.div className="flex gap-20 mt-10 mb-10 flex-wrap">
+
+                        {projectdata.map((data, index) =>
+
+                            <div key={index} className="group relative overflow-hidden sm2:w-[60vh] sm:w-[40vh] flex flex-col gap-3 transition-transform duration-300 transform hover:scale-105 " >
+                                <a href={data.link} target="_blank" rel="noopener noreferrer" key={index} className="group relative overflow-hidden  flex flex-col gap-3">
+
+                                    <h1 className='text-white sm2:text-4xl sm:text-2xl font-extrabold'>{data.projectname}</h1>
+                                    <img className="" src={data.img} alt="no image" />
+                                    <h1 className="text-white flex flex-col font-semibold text-lg">Tools and Technologies: <span className="text-white font-normal text-base">{data.skills}</span> </h1>
+                                    <h1 className="text-white flex flex-col font-semibold text-lg">About: <span className="text-white font-normal text-base">{data.about}</span></h1>
+                                </a>
+                            </div>
+                        )}
+                    </motion.div>
+                </div>
+                {/* <HorizontalScrollCarousel /> */}
 
 
                 {/* <section ref={projectsRef} className="relative w-[70%] mt-20 h-[300vh]">

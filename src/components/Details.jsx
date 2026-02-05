@@ -199,9 +199,9 @@ clean architecture, performance, and scalability in mind.
             <motion.div
               key={index}
               variants={expCard}
-              className={`border border-cyan-900 rounded-xl p-6 ${exp.company.includes("StoreShoppy")
-                ? "w-[92.3%]"
-                : "w-[45%]"
+              className={`border border-cyan-900 rounded-xl  sm:w-[40vh] p-6 ${exp.company.includes("StoreShoppy")
+                ? "w-[92.3%] sm2:w-[81vw]"
+                : "w-[45%] sm2:w-[80vh]"
                 }`}
             >
               <div className="flex justify-between">

@@ -86,7 +86,7 @@ const ProjectSlider = () => {
             variants={itemVariants}
             className="text-[#A0A0A0] sm2:text-2xl font-semibold mb-6 sm:text-xl"
           >
-            Dev Mamgain
+            Dev Mamgain (Development going on)
           </motion.h1>
 
           <motion.div variants={itemVariants} className="inline-block">
