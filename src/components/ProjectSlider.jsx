@@ -9,7 +9,9 @@ const ProjectSlider = () => {
     amount: 0.35,   // % visible before triggering
     once: false     // 👈 allows replay
   });
-
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
   const techStack = [
     "React",
     "Node.js",
@@ -86,7 +88,7 @@ const ProjectSlider = () => {
             variants={itemVariants}
             className="text-[#A0A0A0] sm2:text-2xl font-semibold mb-6 sm:text-xl"
           >
-            Dev Mamgain (Development going on)
+            Dev Mamgain
           </motion.h1>
 
           <motion.div variants={itemVariants} className="inline-block">
@@ -132,8 +134,43 @@ const ProjectSlider = () => {
               </motion.span>
             ))}
           </motion.div>
+          <motion.div
+            variants={containerVariants}
+            className="flex flex-wrap gap-3 mt-4"          >
+            <a href="/updated dev resume.pdf" download>
+              <motion.button
+                whileHover={{
+                  scaleX: 1.08,
+                  opacity: 0.8,
+                  transition: { duration: 0.3 }
+                }}
+                className="bg-[#00ffff5e] border border-[#195619] text-white px-[22px] py-[10px] rounded-full flex gap-2 justify-center font-[500] shadow-xl"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 15V3" />
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <path d="m7 10 5 5 5-5" />
+                </svg>
+                Download Resume
+              </motion.button>
+            </a>   <motion.button
+              onClick={() => navigateTo('#contactme')}
+              whileHover={
+                {
+                  scaleX: 1.08,
+                  opacity: 0.8,
+                  transition: {
+                    duration: 0.3
+                  }
+                }
+              }
+              className='bg-[#00ffff5e] border border-[#195619] text-white  px-[22px] py-[10px] rounded-full flex gap-2  justify-center font-[500]  shadow-xl'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-icon lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>Contact Me</motion.button>
+          </motion.div>
         </motion.div>
       </motion.div>
+
     </div>
   );
 };

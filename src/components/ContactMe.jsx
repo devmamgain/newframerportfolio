@@ -32,11 +32,11 @@ const ContactMe = () => {
                 <div className="flex flex-col gap-5 mt-5 sm1:w-[30%] sm:w-[80%]">
                     <div className="flex flex-col gap-1">
                         <h1 className="text-white text-lg font-semibold">Your Name</h1>
-                        <input type="text" className="rounded-md p-2" placeholder="Whats your good name." />
+                        <input type="text" className="rounded-md p-2" placeholder="What's your name?" />
                     </div>
                     <div className="flex flex-col gap-1">
                         <h2 className="text-white text-lg font-semibold">Your Email</h2>
-                        <input type="text" className="rounded-md p-2" placeholder="Whats your good name." />
+                        <input type="text" className="rounded-md p-2" placeholder="What's your email?" />
                     </div>
                     <div className="flex flex-col gap-1">
                         <h2 className="text-white text-lg font-semibold">Your Message</h2>
